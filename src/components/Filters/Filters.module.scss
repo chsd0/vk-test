@@ -1,0 +1,70 @@
+.filters {
+    &__wrapper {
+        width: 1486px;
+        display: flex;
+        margin: 20px 0;
+        align-items: baseline;
+
+        @media (max-width: 1486px) {
+            width: 95dvw;
+        }
+    }
+
+    &__current-state {
+        margin: 0;
+        letter-spacing: 2px;
+        font-weight: 500;
+        line-height: 30px;
+    }
+
+    &__tab {
+        margin-left: auto;
+        display: flex;
+        align-items: center;
+        gap: 5px;
+        cursor: pointer;
+    }
+
+    &__icon {
+        width: 24px;
+        height: 24px;
+    }
+}
+
+.genres {
+    &__title {
+        margin: 10px 0 1em 0;
+    }
+
+    &__list {
+        width: 250px;
+        scrollbar-width:thin;
+        scrollbar-color: white #1f1f1f;
+        height: 200px;
+        overflow-y: scroll;
+        display: flex;
+        flex-wrap: wrap;
+        column-gap: 10px;
+        row-gap: 8px;
+    }
+}
+
+.years {
+    &__title {
+        width: fit-content;
+
+        &s {
+            display: flex
+        }
+    }
+
+    &__value {
+        width: fit-content;
+        margin-left: auto;
+    }
+}
+
+.divider {
+    height: 1px;
+    background-color: #555555;
+}

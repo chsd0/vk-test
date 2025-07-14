@@ -1,0 +1,83 @@
+.card {
+    display: flex;
+    width: 262px;
+    flex-direction: column;
+    transition: transform 0.3s ease;
+    transform-origin: center;
+    will-change: transform;
+    backface-visibility: hidden;
+    cursor: pointer;
+
+    &:hover {
+        transform: scale(1.02);
+        z-index: 1;
+        position: relative;
+        
+        &>.card__image-wrapper>.card__image {
+            box-shadow: 0 0 50px rgba(255, 255, 255, 0.103);
+        }
+    }
+
+    &__image {
+        width: 262px;
+        height: 393px;
+        box-shadow: none;
+        transition: box-shadow 0.3s ease;
+
+        &-wrapper {
+            position: relative;
+        }
+    }
+
+    &__rating {
+        width: 32px;
+        height: 23px;
+        border-radius: 4px;
+        color: white;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        position: absolute;
+        top: 4px;
+        left: 4px;
+
+        &.good {
+            background-color: green;
+        }
+
+        &.average {
+            background-color: rgb(105, 105, 105);
+        }
+
+        &.bad {
+            background-color: rgb(168, 0, 0);
+        }
+    }
+
+    &__title {
+        margin: 0;
+        max-width: 238px;
+
+        &-section {
+            display: flex;
+            margin: 10px 0 0 0;
+        }
+    }
+
+    &__favourite {
+        margin-left: auto;
+        width: 24px;
+        height: 24px;
+
+        &.filled>g {
+            fill: rgb(223, 171, 0);
+            fill-opacity: 1;
+        }
+
+        &>g {
+            fill: rgb(223, 171, 0);
+            fill-opacity: 0;
+            transition: fill-opacity 0.3s ease;
+        }
+    }
+}

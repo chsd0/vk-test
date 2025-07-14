@@ -1,0 +1,5 @@
+export {default as MovieCard} from './MovieCard'
+export {default as Header} from './Header'
+export {default as Filters} from './Filters'
+export {default as FavouriteModal} from './FavouriteModal'
+export {default as EmptyFavourite} from './EmptyFavourite'

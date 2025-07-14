@@ -4,17 +4,27 @@
   "version": "0.0.0",
   "type": "module",
   "scripts": {
+    "start": "cp .env.default .env && vite",
     "dev": "vite",
     "build": "tsc -b && vite build",
     "lint": "eslint .",
     "preview": "vite preview"
   },
   "dependencies": {
+    "@emotion/styled": "^11.14.1",
+    "@mui/material": "^7.2.0",
+    "mobx": "^6.13.7",
+    "mobx-react-lite": "^4.1.0",
+    "path": "^0.12.7",
     "react": "^19.1.0",
-    "react-dom": "^19.1.0"
+    "react-dom": "^19.1.0",
+    "react-router": "^7.6.3",
+    "react-router-dom": "^7.6.3",
+    "sass": "^1.89.2"
   },
   "devDependencies": {
     "@eslint/js": "^9.30.1",
+    "@svgr/rollup": "^8.1.0",
     "@types/react": "^19.1.8",
     "@types/react-dom": "^19.1.6",
     "@vitejs/plugin-react": "^4.6.0",
@@ -24,6 +34,7 @@
     "globals": "^16.3.0",
     "typescript": "~5.8.3",
     "typescript-eslint": "^8.35.1",
-    "vite": "^7.0.3"
+    "vite": "^7.0.3",
+    "vite-plugin-svgr": "^4.3.0"
   }
 }

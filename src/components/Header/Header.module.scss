@@ -1,0 +1,17 @@
+.header {
+    width: 1486px;
+    margin: 20px 0;
+    display: flex;
+    align-items: center;
+    @media (max-width: 1486px) {
+        width: 95dvw;
+    }
+
+    &__logo {
+        margin: 0;
+        letter-spacing: 4px;
+        font-weight: 900;
+        font-size: 40px;
+        cursor: pointer;
+    }
+}
