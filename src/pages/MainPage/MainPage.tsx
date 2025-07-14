@@ -3,7 +3,7 @@ import CircularProgress from '@mui/material/CircularProgress';
 import type { movieCard } from '@components/MovieCard/types';
 import { useEffect, useRef, useCallback, useMemo } from 'react';
 import { getFavouriteFimls } from '@shared/localStorageWork';
-import { useLocation, useSearchParams } from 'react-router-dom';
+import { useLocation, useNavigationType, useSearchParams } from 'react-router-dom';
 import { observer } from "mobx-react-lite";
 import { moviesStore } from "@store/MoviesStore";
 import styles from './MainPage.module.scss';
@@ -13,6 +13,7 @@ export const MainPage = observer(() => {
     const [searchParams] = useSearchParams();
     const atFavourite = location.pathname === '/favourite';
     const loaderRef = useRef<HTMLDivElement | null>(null);
+    const navigationType = useNavigationType();
 
     const currentFilters = useMemo(() => ({
         genres: searchParams.get('genres') ?? undefined,
@@ -25,28 +26,18 @@ export const MainPage = observer(() => {
             return;
         }
 
-        // const filtersChanged = (
-        //     currentFilters.genres !== filtersCache.current.genres ||
-        //     currentFilters.year !== filtersCache.current.year ||
-        //     currentFilters.rating !== filtersCache.current.rating
-        // );
+        if(navigationType !== 'POP') {
+            moviesStore.fetchMovies(1, currentFilters).then(() => {
+                setTimeout(() => {
+                    moviesStore.restoreScrollPosition(currentFilters);
+                }, 0);
+            });
+        }
 
-        // if (filtersChanged || moviesStore.movies.length === 0) {
-        //     moviesStore.fetchMovies(1, currentFilters);
-        //     filtersCache.current = currentFilters;
-        // }
-        moviesStore.fetchMovies(1, currentFilters).then(() => {
-            // Восстанавливаем скролл после загрузки
-            setTimeout(() => {
-                moviesStore.restoreScrollPosition(currentFilters);
-            }, 0);
-        });
-        
-        // Сохраняем позицию при размонтировании
         return () => {
             moviesStore.saveScrollPosition(currentFilters);
         };
-
+    //eslint-disable-next-line
     }, [atFavourite, currentFilters]);
 
     const handleObserver = useCallback((entries: IntersectionObserverEntry[]) => {

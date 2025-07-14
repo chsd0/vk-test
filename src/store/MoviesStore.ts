@@ -64,6 +64,7 @@ class MoviesStore {
                 this.hasMore = data.docs.length > 0;
                 this.loading = false;
             });
+        //eslint-disable-next-line
         } catch (e) {
             runInAction(() => {
                 this.error = "Ошибка загрузки";
@@ -73,6 +74,7 @@ class MoviesStore {
     }
 
     async fetchMovieById(id: number) {
+        //eslint-disable-next-line
         if(!!this.movies.find((val) => val.id === id)) {
             return;
         }
@@ -90,6 +92,7 @@ class MoviesStore {
                 this.movies = [...this.movies, makeMovieCard(data)];
                 this.loadingSingle = false;
             });
+        //eslint-disable-next-line
         } catch (e) {
             runInAction(() => {
                 this.error = "Ошибка загрузки";

@@ -11,4 +11,5 @@ export interface movieCard {
 
 export interface movieCardProps {
     movieCard: movieCard
+    onClick?: () => void
 }

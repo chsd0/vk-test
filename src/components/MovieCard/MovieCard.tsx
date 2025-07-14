@@ -34,6 +34,9 @@ export const MovieCard: FC<movieCardProps> = (props) => {
 
     const navigate = useNavigate();
     const handleClick = () => {
+        if(props.onClick){
+            props.onClick();
+        }
         navigate(`/movie/${id}`);
     }
 

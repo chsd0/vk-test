@@ -94,7 +94,6 @@ export const Filters: FC<{atFavourite: boolean}> = ({atFavourite}) => {
         });
     };
 
-    // Меняем только локальное состояние
     const handleGenreClick = (genreIdx: number) => {
         setLocalSelectedIdxs(prev =>
             prev.includes(genreIdx)
