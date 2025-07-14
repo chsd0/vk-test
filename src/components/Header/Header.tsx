@@ -25,7 +25,7 @@ export const Header = () => {
         // eslint-disable-next-line
     }, [location.pathname]);
 
-    const onChange = (e: SyntheticEvent, newValue: number) => {
+    const onChange = (_e: SyntheticEvent, newValue: number) => {
         changeValue(newValue);
         navigate(tabToPath[newValue]);
     }
